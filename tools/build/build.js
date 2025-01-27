@@ -289,6 +289,8 @@ export const BuildServerTarget = new Juke.Target({
         && !fillet.includes('embeddiumplus')
         && !fillet.includes('citresewn')
         && !fillet.includes('legendarytooltips')
+        && !fillet.includes('ears')
+        && !fillet.includes('speedometer')
         && fillet.includes('.jar')
       )
     })
