@@ -251,6 +251,13 @@ export const BuildClientTarget = new Juke.Target({
       fs.cpSync(folders, `dist/client/${folders}`, { recursive: true })
     }
 
+    cpSyncFiltered('dist/modcache/', 'dist/client/mods', file => {
+      const fillet = file.toLowerCase();
+      return (
+        fillet.includes('.jar')
+      )
+    })
+
     await packMod("client");
   }
 })
