@@ -1,11 +1,20 @@
 //@ts-check
 import Juke from '../../juke/index.js';
 import fs from 'fs';
-import { randomUUID } from 'crypto';
+import { UUID } from '../../lib/uuid-1345.js';
 import { fileURLToPath } from 'url';
 
 import { readDatafileJSON } from '../../lib/json_datafile.js';
 import { fillTemplateFile, fillTemplates } from '../fill_templates.js';
+
+var UUIDcounter = -1;
+function randomUUID() {
+  UUIDcounter += 1;
+  return UUID.v5({
+    namespace: UUID.namespace.url,
+    name: `mcuuid://monifactory/credits/${UUIDcounter}`,
+  })
+}
 
 /**
  * @param {string} f
